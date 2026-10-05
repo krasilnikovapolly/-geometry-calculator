@@ -1,0 +1,14 @@
+N = int(input("Введите количество чисел N: "))
+numbers = []
+
+for i in range(N):
+    x = int(input(f"Введите число {i+1}: "))
+    numbers.append(x)
+count = 0
+total_diff = 0
+for i in range(1, N):
+    if numbers[i] > numbers[i-1]:
+        count += 1
+        total_diff += numbers[i] - numbers[i-1]
+print(f"Количество случаев, когда текущий элемент больше предыдущего: {count}")
+print(f"Сумма превышений: {total_diff}")
