@@ -1,0 +1,23 @@
+def word_length(word):
+    count = 0
+    for _ in word:
+        count += 1
+    return count
+
+def longest_word_no_len(s):
+    words = s.split()
+    longest = ""
+    max_length = 0
+    
+    for word in words:
+        length = 0
+        for ch in word:
+            length += 1
+        
+        if length > max_length:
+            max_length = length
+            longest = word
+    
+    return longest
+
+print(longest_word_no_len("I love programming"))  
