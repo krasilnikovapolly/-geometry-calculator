@@ -1,0 +1,7 @@
+a = [1, 2, -2, 3, 4, 5]
+b = [2, 3, 8, 6, 1]
+numbers = []
+for i in a:
+    if i in b and i not in numbers:
+        numbers.append(i)
+print(numbers)
