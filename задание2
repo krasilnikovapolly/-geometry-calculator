@@ -47,7 +47,7 @@ class SaddleMatrix:
                     
         return result
 
-# --- Проверка работы ---
+#проверка работы
 if __name__ == "__main__":
     # Тестовый массив
     matrix = [
