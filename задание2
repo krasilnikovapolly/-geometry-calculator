@@ -1,0 +1,64 @@
+class SaddleMatrix:
+    def __init__(self, data):
+        self.data = data
+        self.rows = len(data)
+        self.cols = len(data[0]) if self.rows > 0 else 0
+
+    def find_saddle_points(self):
+        result = []
+        
+        # Перебираем каждую строку
+        for i in range(self.rows):
+            # Перебираем каждый столбец
+            for j in range(self.cols):
+                current = self.data[i][j]
+                
+                # 1. Проверяем, является ли элемент максимальным в строке
+                is_max_in_row = True
+                for k in range(self.cols):
+                    if self.data[i][k] > current:
+                        is_max_in_row = False
+                        break # Нашли элемент больше, дальше можно не проверять
+                
+                # 2. Проверяем, является ли элемент минимальным в столбце
+                is_min_in_col = True
+                for k in range(self.rows):
+                    if self.data[k][j] < current:
+                        is_min_in_col = False
+                        break
+                
+                # 3. Проверяем наоборот: минимальный в строке
+                is_min_in_row = True
+                for k in range(self.cols):
+                    if self.data[i][k] < current:
+                        is_min_in_row = False
+                        break
+                        
+                # 4. Проверяем наоборот: максимальный в столбце
+                is_max_in_col = True
+                for k in range(self.rows):
+                    if self.data[k][j] > current:
+                        is_max_in_col = False
+                        break
+
+                # Если выполняется первая пара условий ИЛИ вторая пара
+                if (is_max_in_row == True and is_min_in_col == True) or (is_min_in_row == True and is_max_in_col == True):
+                    result.append((i, j, current))
+                    
+        return result
+
+#проверка работы
+if __name__ == "__main__":
+    # Тестовый массив
+    matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+    
+    # Создаем объект класса
+    mat = SaddleMatrix(matrix)
+    
+    # Вызываем метод и выводим результат
+    print("Седловые точки (строка, столбец, значение):")
+    print(mat.find_saddle_points())
