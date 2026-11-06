@@ -1,0 +1,10 @@
+def capital(capitals):
+    result = set()
+    for i in capitals:
+        country_or_state = i.get('state') or i.get('country')
+        city = i.get('capital')
+        result.add(f"The capital of {country_or_state} is {city}")
+    return result
+
+capitals1 = [{'state': 'Maine', 'capital': 'Augusta'}]
+print(capital(capitals1)
