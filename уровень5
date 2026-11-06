@@ -1,0 +1,12 @@
+def anagrams(word, words):
+    anagr = ''.join(sorted(word))
+    result = []
+    for i in words:
+        if ''.join(sorted(i)) == anagr:
+            result.append(i)
+    return result
+
+anagram = 'racer'
+anagram1 = ['crazer', 'carer', 'racar', 'caers', 'racer']
+result = anagrams(anagram, anagram1)
+print(result)
