@@ -1,0 +1,11 @@
+def part_sum(ls):
+    total = sum(ls)
+    result = []
+    result.append(total)
+    for i in ls:
+        total -= i
+        result.append(total)
+    return result
+
+ls1 = [1, 2, 3, 4, 5, 6]
+print(part_sum(ls1))
