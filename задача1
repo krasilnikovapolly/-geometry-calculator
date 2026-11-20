@@ -1,0 +1,14 @@
+def flatten_deep(lst):
+    result = []
+    def helper(sublist):
+        for item in sublist:
+            if isinstance(item, list):
+                helper(item)
+            else:
+                result.append(item)
+    helper(lst)
+    return result
+print(flatten_deep([1, [2, [3]], 4]))
+print(flatten_deep([]))  
+print(flatten_deep([[], [1]])) 
+print(flatten_deep([1, (2, 3)])) 
